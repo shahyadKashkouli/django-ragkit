@@ -1,0 +1,26 @@
+services:
+ db:
+   container_name: postgres
+   image: pgvector/pgvector:pg17
+   ports:
+     - "5432:5432"
+   volumes:
+     - postgres_data:/var/lib/postgresql/data
+   env_file:
+     - .env
+     - .env.docker
+
+ django:
+   build: .
+   container_name: ragkit
+   ports:
+     - "8000:8000"
+   depends_on:
+     - db
+   env_file:
+     - .env
+     - .env.docker
+   volumes:
+      - .:/app
+volumes:
+  postgres_data:
