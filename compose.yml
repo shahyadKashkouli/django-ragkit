@@ -22,5 +22,7 @@ services:
      - .env.docker
    volumes:
       - .:/app
+   extra_hosts:
+        - "host.docker.internal:host-gateway"
 volumes:
   postgres_data:

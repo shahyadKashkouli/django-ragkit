@@ -119,3 +119,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+RAGKIT = {
+    "EMBEDDING": {
+        "PROVIDER": "ollama",
+        "MODEL": "bge-m3",
+        "BASE_URL": "http://host.docker.internal:11434", #optional
+    },
+    "LLM": {
+        "PROVIDER": "ollama",
+        "MODEL": "qwen3:8b",
+    },
+}
