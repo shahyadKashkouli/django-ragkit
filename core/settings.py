@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
 from pathlib import Path
+
+from django.conf import settings
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -40,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # external module
+    "django.contrib.postgres",
+    # internal module
     'django_ragkit'
 ]
 
@@ -117,17 +122,29 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
-
 STATIC_URL = 'static/'
 
+
+
+
+
+
+
+# Ragkit settings
 RAGKIT = {
     "EMBEDDING": {
         "PROVIDER": "ollama",
         "MODEL": "bge-m3",
-        "BASE_URL": "http://host.docker.internal:11434", #optional
+        "BASE_URL": "http://host.docker.internal:11434",
+        "DIMENSION" : 1024
     },
     "LLM": {
         "PROVIDER": "ollama",
-        "MODEL": "qwen3:8b",
+        "MODEL": "qwen3:4b",
+        "BASE_URL": "http://host.docker.internal:11434",  # optional
+        # "OPTIONS": {
+        # "BASE_PROMPT": "BASE",  # optional
+        # "NOT_FOUND_PROMPT" : "optional"
+        # }
     },
 }

@@ -3,15 +3,6 @@ import requests
 
 
 class OllamaEmbeddingProvider(BaseEmbeddingProvider):
-    DEFAULT_CONFIG = {
-        "BASE_URL": "http://localhost:11434",
-    }
-    MODELS = {
-        "bge-m3": {
-            "dimension": 1024,
-        },
-    }
-
     def embed(self, text: str) -> list[float]:
         response = requests.post(
             f"{self.base_url}/api/embed",

@@ -6,20 +6,15 @@ from django_ragkit.services.embeddings import qa_create_and_save_embed, qa_creat
 
 @receiver(post_save, sender=QuestionAnswer)
 def create_embedding(sender, instance, created, **kwargs):
-    if not created:
-        question = instance.question
-        vector = qa_create_embed(question)
-        QAEmbedding.objects.filter(QA_foreign_key_id=instance.id).update(vector=vector)
-
-    elif created:
+    if created:
         qa_create_and_save_embed(instance)
 
 
 @receiver(pre_save, sender=QuestionAnswer)
 def update_embedding(sender, instance, **kwargs):
-    if not instance.id:
+    if not instance.pk:
         return
-    old = QuestionAnswer.objects.get(id=instance.id)
+    old = QuestionAnswer.objects.get(pk=instance.pk)
     if old.question != instance.question:
         vector = qa_create_embed(instance.question)
         QAEmbedding.objects.filter(QA_foreign_key=instance).update(vector=vector)

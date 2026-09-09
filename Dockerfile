@@ -1,31 +1,27 @@
 # Use the official Python runtime image
 FROM python:3.13-slim
 
-# Create the app directory
-RUN mkdir /app
+# Set the working directory
+WORKDIR /app
 
-# Set the working directory inside the container
-WORKDIR /app/core
-
-# Set environment variables
-# Prevents Python from writing pyc files to disk
-ENV PYTHONDONTWRITEBYTECODE=1
-#Prevents Python from buffering stdout and stderr
-ENV PYTHONUNBUFFERED=1
+# Environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
 
 # Upgrade pip
 RUN pip install --upgrade pip
 
-# Copy the Django project  and install dependencies
-COPY requirements.txt  /app/
+# Copy requirements first for better Docker layer caching
+COPY requirements.txt .
 
-# run this command to install all dependencies
-RUN pip install --no-cache-dir -r /app/requirements.txt
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the Django project to the container
-COPY . /app/
-# Expose the Django port
+# Copy the project
+COPY . .
+
+# Expose Django port
 EXPOSE 8000
 
-# Run Django’s development server
+# Run Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

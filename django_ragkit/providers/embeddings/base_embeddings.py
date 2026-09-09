@@ -1,11 +1,10 @@
 from abc import ABC, abstractmethod
-
+from django.conf import  settings
 from ..shared.base_provider import BaseProvider
 
 
 class BaseEmbeddingProvider(BaseProvider):
     settings_key = "EMBEDDING"
-    MODELS = {}
     @abstractmethod
     def embed(self, text: str) -> list[float]:
         """Return the embedding vector for a single text."""
@@ -14,5 +13,5 @@ class BaseEmbeddingProvider(BaseProvider):
 
     @property
     def dimension(self):
-        return self.MODELS[self.model]["dimension"]
+        return self.config["DIMENSION"]
 

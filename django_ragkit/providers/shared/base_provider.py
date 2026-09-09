@@ -22,3 +22,6 @@ class BaseProvider(ABC):
     @property
     def base_url(self):
         return self.config["BASE_URL"]
+    @property
+    def provider(self):
+        return self.config["PROVIDER"]
