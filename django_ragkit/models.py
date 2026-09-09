@@ -2,10 +2,10 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from pgvector.django import VectorField, HnswIndex
 import uuid
-
+from  django.conf import  settings
 # Create your models here.
 User = get_user_model()
-
+dimensions = settings.RAGKIT.get("EMBEDDING").get("DIMENSION")
 
 class QuestionAnswer(models.Model):
     question = models.TextField()
@@ -27,7 +27,7 @@ class QAEmbedding(models.Model):
         on_delete=models.CASCADE,
         related_name="embeddings",
     )
-    vector = VectorField(dimensions=1536)
+    vector = VectorField(dimensions=dimensions)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

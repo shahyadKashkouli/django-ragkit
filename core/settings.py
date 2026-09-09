@@ -136,7 +136,7 @@ RAGKIT = {
         "PROVIDER": "openrouter",
         "MODEL": "openai/text-embedding-3-small",
         "BASE_URL": "https://openrouter.ai/api/v1",
-        "DIMENSION" : 1536 ,
+        "DIMENSION" : 1024 ,
         "API_KEY" : os.getenv("EMBEDDING_API_KEY")
     },
     "LLM": {
