@@ -4,14 +4,6 @@ import requests
 
 
 class OllamaLLMProvider(BaseLLMProvider):
-    DEFAULT_CONFIG = {
-        "BASE_URL": "http://localhost:11434",
-    }
-    MODELS = {
-        "qwen3:4b": {
-        },
-    }
-
     def generate_response(self, prompt):
         prompt = json.dumps(prompt, ensure_ascii=False)
         response = requests.post(

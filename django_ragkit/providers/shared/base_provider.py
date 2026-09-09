@@ -25,3 +25,7 @@ class BaseProvider(ABC):
     @property
     def provider(self):
         return self.config["PROVIDER"]
+
+    @property
+    def api_key(self):
+        return self.config["API_KEY"]

@@ -133,15 +133,17 @@ STATIC_URL = 'static/'
 # Ragkit settings
 RAGKIT = {
     "EMBEDDING": {
-        "PROVIDER": "ollama",
-        "MODEL": "bge-m3",
-        "BASE_URL": "http://host.docker.internal:11434",
-        "DIMENSION" : 1024
+        "PROVIDER": "openrouter",
+        "MODEL": "openai/text-embedding-3-small",
+        "BASE_URL": "https://openrouter.ai/api/v1",
+        "DIMENSION" : 1536 ,
+        "API_KEY" : os.getenv("EMBEDDING_API_KEY")
     },
     "LLM": {
-        "PROVIDER": "ollama",
-        "MODEL": "qwen3:4b",
-        "BASE_URL": "http://host.docker.internal:11434",  # optional
+        "PROVIDER": "openrouter",
+        "MODEL": "nex-agi/nex-n2.5-mini:free",
+        "BASE_URL": "https://openrouter.ai/api/v1",
+        "API_KEY": os.getenv("LLM_API_KEY")
         # "OPTIONS": {
         # "BASE_PROMPT": "BASE",  # optional
         # "NOT_FOUND_PROMPT" : "optional"

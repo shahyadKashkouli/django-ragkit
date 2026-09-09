@@ -27,7 +27,7 @@ class QAEmbedding(models.Model):
         on_delete=models.CASCADE,
         related_name="embeddings",
     )
-    vector = VectorField(dimensions=1024)
+    vector = VectorField(dimensions=1536)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
