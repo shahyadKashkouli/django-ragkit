@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-ragkit"
+version = "0.1.0"
+description = "A reusable RAG toolkit for Django"
+
+requires-python = ">=3.11"
+
+dependencies = [
+    "Django>=5.2",
+    "pgvector>=0.4.1",
+    "requests>=2.32.5",
+    "psycopg2-binary>=2.9.10",
+]
+
+[tool.setuptools.packages.find]
+include = ["django_ragkit*"]
+
+[tool.setuptools.package-data]
+django_ragkit = ["**/*"]
