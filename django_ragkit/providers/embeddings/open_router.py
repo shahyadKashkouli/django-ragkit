@@ -21,5 +21,4 @@ class OpenRouterEmbeddingProvider(BaseEmbeddingProvider):
         response.raise_for_status()
 
         data = response.json()
-        print(data["data"][0]["embedding"])
         return data["data"][0]["embedding"]

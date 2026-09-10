@@ -132,9 +132,12 @@ STATIC_URL = 'static/'
 
 # Ragkit settings
 RAGKIT = {
+    # "BASE_SETTING" :{
+    #     "LOGIN_REQUIRED" : False, #OPTIANL DEFAULT FALSE
+    # },
     "EMBEDDING": {
         "PROVIDER": "openrouter",
-        "MODEL": "openai/text-embedding-3-small",
+        "MODEL": "baai/bge-m3",
         "BASE_URL": "https://openrouter.ai/api/v1",
         "DIMENSION" : 1024 ,
         "API_KEY" : os.getenv("EMBEDDING_API_KEY")
