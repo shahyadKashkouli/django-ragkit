@@ -4,3 +4,11 @@ __pycache__/
 .git/
 .idea
 .gitignore
+docs/
+readme.md
+mkdocs.yml
+readme.md
+site/
+.env
+Dockerfile
+compose.yml
