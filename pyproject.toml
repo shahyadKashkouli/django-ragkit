@@ -4,10 +4,25 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-ragkit"
-version = "0.1.0"
+version = "0.1.1"
 description = "A reusable RAG toolkit for Django"
-
+readme = "README.md"
 requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Shahyad Kashkouli" }
+]
+keywords = ["django", "rag", "pgvector", "postgresql", "ai", "llm", "embeddings", "ollama", "openrouter"]
+classifiers = [
+    "Framework :: Django",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
 
 dependencies = [
     "Django>=5.2",
@@ -15,6 +30,12 @@ dependencies = [
     "requests>=2.32.5",
     "psycopg2-binary>=2.9.10",
 ]
+
+[project.urls]
+Homepage = "https://github.com/shahyadKashkouli/django-ragkit"
+Documentation = "https://shahyadkashkouli.github.io/django-ragkit/"
+Repository = "https://github.com/shahyadKashkouli/django-ragkit"
+"Issue Tracker" = "https://github.com/shahyadKashkouli/django-ragkit/issues"
 
 [tool.setuptools.packages.find]
 include = ["django_ragkit*"]
