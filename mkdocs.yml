@@ -1,0 +1,93 @@
+site_name: Django RAGKit
+site_description: Production-ready Retrieval-Augmented Generation (RAG) and AI Chat toolkit for Django with PostgreSQL & pgvector.
+site_author: Shahyad Kashkouli
+site_url: https://shahyadkashkouli.github.io/django-ragkit/
+repo_url: https://github.com/shahyadKashkouli/django-ragkit
+repo_name: shahyadKashkouli/django-ragkit
+
+theme:
+  name: material
+  language: en
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.mark
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Overview:
+      - Introduction: index.md
+  - Getting Started:
+      - Python Package (pip): getting-started/installation.md
+      - Docker Quickstart: getting-started/docker.md
+      - Docker Image: getting-started/docker-image.md
+  - Configuration: configuration/settings.md
+  - Architecture:
+      - RAG Pipeline: architecture/pipeline.md
+      - Data Models: architecture/models.md
+      - Signals & Auto-Indexing: architecture/signals.md
+  - Providers:
+      - Overview: providers/overview.md
+      - LLM Providers: providers/llm.md
+      - Embedding Providers: providers/embeddings.md
+  - UI & Integration:
+      - Chat Interface: ui/chat-interface.md
+      - Views & URLs: ui/views-and-urls.md
+      - Authentication & Permissions: ui/authentication.md
+  - Operations:
+      - Reset Embeddings: operations/reset-embeddings.md
