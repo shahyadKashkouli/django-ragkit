@@ -11,6 +11,7 @@ Respond using the same language as `user_question`.
 defualt_not_found_prompt = """
 Sorry, I couldn't find information about that. Please contact support for assistance.
 """
+default_not_found_prompt = defualt_not_found_prompt
 
 
 def build_rag_prompt(question, similar_questions):

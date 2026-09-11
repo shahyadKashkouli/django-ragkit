@@ -129,27 +129,29 @@ STATIC_URL = 'static/'
 
 
 
+from django_ragkit.services.prompts import default_base_prompt, defualt_not_found_prompt as default_not_found_prompt
 
-# Ragkit settings
 RAGKIT = {
-    # "BASE_SETTING" :{
-    #     "LOGIN_REQUIRED" : False, #OPTIANL DEFAULT FALSE
-    # },
-    "EMBEDDING": {
-        "PROVIDER": "openrouter",
-        "MODEL": "baai/bge-m3",
-        "BASE_URL": "https://openrouter.ai/api/v1",
-        "DIMENSION" : 1024 ,
-        "API_KEY" : os.getenv("EMBEDDING_API_KEY")
+    "BASE_SETTING": {
+        "LOGIN_REQUIRED": os.getenv("RAGKIT_LOGIN_REQUIRED", "False").lower() in ("true"),
     },
+
+    "EMBEDDING": {
+        "PROVIDER": os.getenv("RAGKIT_EMBEDDING_PROVIDER"),
+        "MODEL": os.getenv("RAGKIT_EMBEDDING_MODEL"),
+        "BASE_URL": os.getenv("RAGKIT_EMBEDDING_BASE_URL"),
+        "DIMENSION": int(os.getenv("RAGKIT_EMBEDDING_DIMENSION")),
+        "API_KEY": os.getenv("RAGKIT_EMBEDDING_API_KEY"),
+    },
+
     "LLM": {
-        "PROVIDER": "openrouter",
-        "MODEL": "nex-agi/nex-n2.5-mini:free",
-        "BASE_URL": "https://openrouter.ai/api/v1",
-        "API_KEY": os.getenv("LLM_API_KEY")
-        # "OPTIONS": {
-        # "BASE_PROMPT": "BASE",  # optional
-        # "NOT_FOUND_PROMPT" : "optional"
-        # }
+        "PROVIDER": os.getenv("RAGKIT_LLM_PROVIDER"),
+        "MODEL": os.getenv("RAGKIT_LLM_MODEL"),
+        "BASE_URL": os.getenv("RAGKIT_LLM_BASE_URL"),
+        "API_KEY": os.getenv("RAGKIT_LLM_API_KEY"),
+        "OPTIONS": {
+            "BASE_PROMPT": os.getenv("RAGKIT_LLM_BASE_PROMPT") or default_base_prompt,
+            "NOT_FOUND_PROMPT": os.getenv("RAGKIT_LLM_NOT_FOUND_PROMPT") or default_not_found_prompt,
+        },
     },
 }

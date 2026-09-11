@@ -10,7 +10,7 @@ services:
      - .env.docker
 
  ragkit:
-   build: .
+   image: shincuff/django-ragkit:latest
    ports:
      - "8000:8000"
    depends_on:
@@ -18,8 +18,7 @@ services:
    env_file:
      - .env
      - .env.docker
-   volumes:
-      - .:/app
+
    extra_hosts:
         - "host.docker.internal:host-gateway"
 volumes:
