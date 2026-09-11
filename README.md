@@ -1,5 +1,7 @@
 # Django RAGKit
 
+📖 **Full Documentation**: [https://shahyadkashkouli.github.io/django-ragkit/](https://shahyadkashkouli.github.io/django-ragkit/)
+
 ---
 
 ## Overview
@@ -311,6 +313,13 @@ The canned fallback message returned immediately when no relevant knowledge base
 
 ---
 
+## Documentation
+
+For comprehensive guides, architectural deep-dives, Docker setups, and provider configurations, check out the official documentation:  
+👉 **[https://shahyadkashkouli.github.io/django-ragkit/](https://shahyadkashkouli.github.io/django-ragkit/)**
+
+---
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
@@ -322,6 +331,7 @@ This project is licensed under the [MIT License](LICENSE).
 </p>
 
 <p align="center">
+  <a href="https://shahyadkashkouli.github.io/django-ragkit/"><img src="https://img.shields.io/badge/docs-GitHub_Pages-blue.svg" alt="Documentation"></a>
   <a href="https://pypi.org/project/django-ragkit/"><img src="https://img.shields.io/pypi/v/django-ragkit?color=blue&label=PyPI" alt="PyPI version"></a>
   <a href="https://pypi.org/project/django-ragkit/"><img src="https://img.shields.io/pypi/pyversions/django-ragkit" alt="Python Versions"></a>
   <a href="https://pypi.org/project/django-ragkit/"><img src="https://img.shields.io/pypi/djversions/django-ragkit" alt="Django Versions"></a>
