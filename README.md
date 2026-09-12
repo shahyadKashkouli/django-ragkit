@@ -38,9 +38,9 @@ graph LR
 
 ## Requirements
 
-- **Python**: `>= 3.11`
+- **Python**: `>= 3`
 - **Django**: `>= 5.2`
-- **Database**: PostgreSQL 13+ with the `pgvector` extension installed on the server
+- **Database**: PostgreSQL 13+
 
 ---
 
